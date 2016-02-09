@@ -102,3 +102,8 @@ Error: Cannot find module '/path/with/space'
 ```
 
 Strangely enough, running this using `child_process/exec` works just fine.  So that's why for now.  Something somewhere may not be quoting a string.
+
+
+### `import` versus `require`
+
+Because this is being run through Babel, you can use ES6 `import` syntax to grab node.js modules.  I don't know if this is recommended or not since you're technically writing to `require` calls, but it looks like `import`s.  Being able to write `export default <whatever>` is also nice, but is that worth the additional indirection?  Probably a question you need to answer on whatever project you're working on.
