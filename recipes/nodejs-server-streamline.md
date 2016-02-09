@@ -10,6 +10,8 @@ Required Dev Deps:
 - [`streamline`](https://github.com/Sage/streamlinejs)
 - [`babel-plugin-streamline`](https://github.com/Sage/babel-plugin-streamline)
 - `babel-preset-es2015`
+- When using React server-side:
+	- `babel-preset-react`
 - When using Gulp:
 	- [`gulp`](http://gulpjs.com/)
 	- [`gulp-babel`](https://github.com/babel/gulp-babel)
