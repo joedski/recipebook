@@ -7,19 +7,21 @@ Required Deps:
 - `streamline-runtime`
 
 Required Dev Deps:
-- `streamline`
-- `babel-plugin-streamline`
+- [`streamline`](https://github.com/Sage/streamlinejs)
+- [`babel-plugin-streamline`](https://github.com/Sage/babel-plugin-streamline)
 - `babel-preset-es2015`
 - When using Gulp:
-	- `gulp`
-	- `gulp-babel`
-	- `gulp-shell` Just to quickly run `node bin` to run the compiled server.  See below for why I don't use `_node source` instead.
+	- [`gulp`](http://gulpjs.com/)
+	- [`gulp-babel`](https://github.com/babel/gulp-babel)
+	- More complex shell command support, like for running a command on each file as part of a Gulp Task:
+		- [`gulp-exec`](https://www.npmjs.com/package/gulp-exec) Note that for simply executing a command, they recommend just using `child_process/exec`.  That is what is done here.
 
 Some quick start ideas:
-- `body-parser` for easy HTTP body parsing.
+- [`body-parser`](https://www.npmjs.com/package/body-parser) for easy HTTP body parsing. (note: _single-part bodies only!_  See project page for libraries for multipart bodies.)
 - One of:
-	- `express` for easy HTTP serving.
+	- [`express`](http://expressjs.com/) for easy HTTP serving.
 	- [`express-streamline`](https://github.com/aseemk/express-streamline) for easy HTTP serving with direct Streamline support.
+
 
 
 
@@ -80,7 +82,7 @@ Explanation
 -----------
 
 
-### Why wrap serve in a call to child_process/exec in a Gulpfile?
+### Why wrap serve in a call to `child_process/exec` in a Gulpfile?
 
 As of writing, for whatever reason, simply using `_node source` (any runtime) as an npm script in a project whose path contains a space results in an error that resembles the following:
 
@@ -99,4 +101,4 @@ Error: Cannot find module '/path/with/space'
     at node.js:999:3
 ```
 
-Strangely enough, running this using `child_process/exec` works just fine.  So that's why for now.
+Strangely enough, running this using `child_process/exec` works just fine.  So that's why for now.  Something somewhere may not be quoting a string.
