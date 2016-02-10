@@ -62,7 +62,9 @@ gulp.task( 'build-clientside-scripts-app', () => {
 			presets: [ 'es2015', 'react' ],
 			plugins: [
 				[ 'streamline', {
-					// 'generators' will result in a faster product, but no support for old browsers.  Good for writing nw.js or electron apps.
+					// 'generators' will result in a faster product, but no support for old browsers.
+					// Good for writing UI portion nw.js or electron apps.
+					// Use 'fibers' for non-UI portion of those.
 					runtime: 'callbacks'
 					sourceMap: true
 				}]
