@@ -24,7 +24,7 @@ In the `.sublime-project` file:
       "eslint": {
         "@disable": true
       },
-      "contrib-standard": {
+      "standard": {
         "@disable": false
       }
     }
