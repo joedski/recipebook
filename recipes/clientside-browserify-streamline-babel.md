@@ -94,6 +94,7 @@ var source = require( 'vinyl-source-stream' );
 var buffer = require( 'vinyl-buffer' );
 var browserify = require( 'browserify' );
 var babelify = require( 'babelify' );
+var streamqueue = require( 'streamqueue' );
 
 const PRODUCTION = (gutil.env.type == 'production');
 
@@ -110,7 +111,7 @@ gulp.task( 'build-clientside-scripts', () => {
 			presets: [ 'es2015', 'react' ],
 			plugins: [
 				[ 'streamline', {
-					runtime: 'callbacks'
+					runtime: 'callbacks',
 					sourceMap: true
 				}]
 			]
